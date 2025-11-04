@@ -6,13 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DashboardController extends AbstractController
+class DefaultController extends AbstractController
 {
-    #[Route('/dashboard', name: 'app_dashboard')]
+    #[Route('/', name: 'app_index')]
     public function index(): Response
     {
-        return $this->render('dashboard/index.html.twig', [
-            'message' => 'Welcome to the secured dashboard area!'
-        ]);
+        return $this->redirectToRoute('app_dashboard');
     }
 }
